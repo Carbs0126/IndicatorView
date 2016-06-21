@@ -93,8 +93,8 @@ SimpleIndicatorView和IndicatorView采用了两种不同的属性，原因是两
 4. IndicatorView能与ViewPager联动，而SimpleIndicatorView不能。
 
 ## 属性说明
+### IndicatorView的相关属性
 ```
-//IndicatorView的相关属性
 <declare-styleable name="IndicatorView">
         <attr name="iv_IndicatorEven" format="reference|boolean" /> //每个单元是否是等宽的
         <attr name="iv_IndicatorColor" format="reference|color" />  //indicator的颜色
@@ -114,7 +114,10 @@ SimpleIndicatorView和IndicatorView采用了两种不同的属性，原因是两
         <attr name="iv_IndicatorViewPagerAnim" format="reference|boolean" />//按下tab后，与之联动的ViewPager是否需要有动画效果，默认true
     </declare-styleable>
     
-//SimpleIndicatorView的相关属性
+```
+
+### SimpleIndicatorView的相关属性
+```
     <declare-styleable name="SimpleIndicatorView">
         <attr name="iv_SimpleIndicatorColor" format="reference|color" />//indicator的颜色
         <attr name="iv_SimpleIndicatorColorStart" format="reference|color" />//indicator的起始颜色，indicator的颜色随着滑动而进行改变，iv_IndicatorColorGradient属性开启后有效
