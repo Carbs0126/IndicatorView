@@ -14,7 +14,12 @@ Android IndicatorView的灵感来源于SlidingTabView，虽然有句“不重复
 3. Indicator可以添加indicator两端相对多增加的长度；
 4. 可以设置颜色渐变，一般可用来做tab切换，增加美感；
 5. SimpleIndicator可以设置indicator的宽度相对每个等长单元的宽度比值；
+6. 可与ViewPager联动；
 
+## 加入项目
+```
+  compile 'cn.carbs.android:IndicatorView:1.0.0'
+```
 
 ## 注意事项
 IndicatorLengthExtra属性请暂时使用大于等于0的dimension值，因为我暂时没有对负值做限制，如果负值过小，可能显示会有问题
