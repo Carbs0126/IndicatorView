@@ -49,7 +49,7 @@ public class IndicatorView extends View {
     private int mTextColorNormal = DEFAULT_INDICATOR_TEXT_COLOR_NORMAL;
     private int mTextColorSelected = DEFAULT_INDICATOR_TEXT_COLOR_SELECTED;
     private int mBgTouchedColor = DEFAULT_INDICATOR_BG_TOUCHED_COLOR;
-    private boolean mEven = DEFAULT_EVEN;//默认是非均等的
+    private boolean mEven = DEFAULT_EVEN;//default value is uneven mode
     private boolean mIndicatorColorGradient = DEFAULT_INDICATOR_COLOR_GRADIENT;
     private boolean mViewPagerAnim = DEFAULT_VIEW_PAGER_ANIM;
 

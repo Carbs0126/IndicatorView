@@ -15,7 +15,7 @@ import android.view.animation.Transformation;
 import cn.carbs.android.library.R;
 
 /**
- * Created by Rick.Wang on 2016/6/21.
+ * Created by Carbs.Wang on 2016/6/21.
  */
 public class SimpleIndicatorView extends View {
 
@@ -42,7 +42,7 @@ public class SimpleIndicatorView extends View {
     private int mIndicatorCount = DEFAULT_INDICATOR_COUNT;
     private int mIndicatorOrientation = ORIENTATION_H;
     private int mIndicatorDuration = DEFAULT_INDICATOR_DURATION;
-    private int mIndicatorIndex = DEFAULT_INDICATOR_INDEX;//暂时没有真正用到，只是用了初始值
+    private int mIndicatorIndex = DEFAULT_INDICATOR_INDEX;
     private float mIndicatorWidthRation = DEFAULT_INDICATOR_WIDTH_RATION;
     private boolean mIndicatorLineShow = DEFAULT_INDICATOR_LINE_SHOW;
     private int mIndicatorLineThickness = DEFAULT_INDICATOR_LINE_THICKNESS_PX;
