@@ -8,6 +8,16 @@ Android IndicatorView的灵感来源于SlidingTabView，虽然有句“不重复
 ## 应用场景
 可以胜任一屏显示所有tab标题的情况。
 
+## 效果图
+
+![Example Image][1]
+
+所有效果如上图所示。
+
+![Example Image][2]
+
+左侧图片为所有效果的截图包括IndicatorView和SimpleIndicatorView，右侧图片为SimpleIndicatorView单独示例。
+
 ## 功能
 1. 均等Indicator显示；
 2. 不均等Indicator显示，根据tab标题的字宽度自动适配；
@@ -157,3 +167,7 @@ SimpleIndicatorView和IndicatorView采用了两种不同的属性，原因是两
     See the License for the specific language governing permissions and
     limitations under the License.
 
+
+ [1]: https://github.com/Carbs0126/Screenshot/blob/master/indicator_view.gif
+ [2]: https://github.com/Carbs0126/Screenshot/blob/master/indicator_view_uneven.png
+ [3]: https://github.com/Carbs0126/Screenshot/blob/master/indicator_view_sample.jpg
