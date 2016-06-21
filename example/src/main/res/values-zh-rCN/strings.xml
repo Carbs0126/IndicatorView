@@ -2,11 +2,11 @@
 
     <string name="app_name">IndicatorView</string>
 
-    <string name="switch_indicator">Switch Indicator View</string>
+    <string name="switch_indicator">切换</string>
     <string name="to_simple">SimpleIndicatorView</string>
-    <string name="to_normal_even">IndicatorView Even Mode</string>
-    <string name="to_normal_uneven">IndicatorView Uneven Mode</string>
-    <string name="to_all">See All Effect</string>
+    <string name="to_normal_even">IndicatorView Even模式</string>
+    <string name="to_normal_uneven">IndicatorView Uneven模式</string>
+    <string name="to_all">所有效果</string>
 
     <string name="activity_simple">SimpleIndicatorView</string>
     <string name="activity_even">IndicatorView Even Mode</string>
@@ -14,19 +14,19 @@
     <string name="activity_all">All Effect</string>
 
     <string-array name="text_arrays_1">
-        <item>A</item>
-        <item>B</item>
-        <item>C</item>
-        <item>D</item>
-        <item>E</item>
+        <item>金</item>
+        <item>木</item>
+        <item>水</item>
+        <item>火</item>
+        <item>土</item>
     </string-array>
 
     <string-array name="text_arrays_2">
-        <item>one</item>
-        <item>two</item>
-        <item>three</item>
-        <item>four</item>
-        <item>five</item>
+        <item>零</item>
+        <item>一二</item>
+        <item>三四五</item>
+        <item>六</item>
+        <item>七八九十</item>
     </string-array>
 
 </resources>

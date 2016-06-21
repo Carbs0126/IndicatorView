@@ -21,7 +21,7 @@ import java.lang.reflect.Field;
 import cn.carbs.android.library.R;
 
 /**
- * Created by Rick.Wang on 2016/6/21.
+ * Created by Carbs.Wang on 2016/6/21.
  */
 public class IndicatorView extends View {
 
@@ -262,9 +262,11 @@ public class IndicatorView extends View {
 
             if(mEven){
                 for (int i = 0; i < mIndicatorTextArray.length; i++) {
-
-                    mIndicatorTextArrayWidths[i] = mNetWidth / mIndicatorTextArray.length + 2 * mIndicatorExtra;
-                    mIndicatorTextArrayCenterPoints[i] = new PointF(getPaddingLeft() + mNetWidth * (i + 0.5f) / mIndicatorTextArray.length, centerY);
+//                    mIndicatorTextArrayWidths[i] = mNetWidth / mIndicatorTextArray.length + 2 * mIndicatorExtra;
+//                    mIndicatorTextArrayCenterPoints[i] = new PointF(getPaddingLeft() + mNetWidth * (i + 0.5f) / mIndicatorTextArray.length, centerY);
+                    mIndicatorTextArrayWidths[i] = (mNetWidth - 2 * mIndicatorExtra) / mIndicatorTextArray.length;
+                    mIndicatorTextArrayCenterPoints[i] = new PointF(getPaddingLeft()
+                            + mIndicatorExtra + (mNetWidth - 2 * mIndicatorExtra) * (i + 0.5f) / mIndicatorTextArray.length, centerY);
                 }
             }else {
                 for (int i = 0; i < mIndicatorTextArray.length; i++) {
@@ -365,8 +367,7 @@ public class IndicatorView extends View {
 
                 float offsetRation = (mCurrP.x - mIndicatorTextArrayCenterPoints[i].x)/
                         (mIndicatorTextArrayCenterPoints[i+1].x - mIndicatorTextArrayCenterPoints[i].x);
-                float springHalfWidth = 0;
-                springHalfWidth = mIndicatorExtra + mIndicatorTextArrayWidths[i] / 2
+                float springHalfWidth = mIndicatorExtra + mIndicatorTextArrayWidths[i] / 2
                         + (mIndicatorTextArrayWidths[i+1] - mIndicatorTextArrayWidths[i]) * offsetRation / 2;
 
                 mRectFIndicator.left = mCurrP.x - springHalfWidth;

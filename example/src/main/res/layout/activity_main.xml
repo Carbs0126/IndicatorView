@@ -1,89 +1,48 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-                xmlns:app="http://schemas.android.com/apk/res-auto"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:paddingBottom="@dimen/activity_vertical_margin"
-                android:paddingLeft="6dp"
+                android:paddingLeft="@dimen/activity_vertical_margin"
                 android:paddingRight="@dimen/activity_horizontal_margin"
                 android:paddingTop="@dimen/activity_vertical_margin">
 
-    <cn.carbs.android.library.indicatorview.SimpleIndicatorView
-        android:id="@+id/simple_indicator_view_v"
-        android:layout_width="4dp"
-        android:layout_height="match_parent"
-        android:layout_alignParentLeft="true"
-        app:iv_SimpleIndicatorColorEnd="#ffee5544"
-        app:iv_SimpleIndicatorColorGradient="true"
-        app:iv_SimpleIndicatorColorStart="#ff3388ff"
-        app:iv_SimpleIndicatorCount="4"
-        app:iv_SimpleIndicatorLinePosition="start"
-        app:iv_SimpleIndicatorOrientation="vertical"
-        app:iv_SimpleIndicatorWidthRation="0.8"/>
-
-    <cn.carbs.android.library.indicatorview.SimpleIndicatorView
-        android:id="@+id/simple_indicator_view_h"
+    <Button
+        android:id="@+id/button_1"
         android:layout_width="match_parent"
-        android:layout_height="4dp"
-        android:layout_marginLeft="16dp"
-        android:layout_marginTop="50dp"
-        app:iv_SimpleIndicatorColorEnd="#ffee5544"
-        app:iv_SimpleIndicatorColorGradient="false"
-        app:iv_SimpleIndicatorColorStart="#ff3388ff"
-        app:iv_SimpleIndicatorCount="3"
-        app:iv_SimpleIndicatorOrientation="horizontal"
-        app:iv_SimpleIndicatorWidthRation="0.8"/>
-
-    <cn.carbs.android.library.indicatorview.IndicatorView
-        android:id="@+id/indicator_view_1"
-        android:layout_width="match_parent"
-        android:layout_height="60dp"
-        android:layout_below="@id/simple_indicator_view_h"
-        android:layout_marginLeft="16dp"
-        android:layout_marginTop="20dp"
-        android:background="#ffeeeeee"
-        android:paddingLeft="2dp"
-        app:iv_IndicatorColorEnd="#ffee5544"
-        app:iv_IndicatorColorGradient="false"
-        app:iv_IndicatorColorStart="#ff3388ff"
-        app:iv_IndicatorEven="true"
-        app:iv_IndicatorLengthExtra="3dp"
-        app:iv_IndicatorTextArray="@array/text_arrays_1"
-        app:iv_IndicatorTextGap="20dp"
-        app:iv_IndicatorTextSize="20dp"/>
-
-    <cn.carbs.android.library.indicatorview.IndicatorView
-        android:id="@+id/indicator_view_2"
-        android:layout_width="match_parent"
-        android:layout_height="60dp"
-        android:layout_below="@id/indicator_view_1"
-        android:layout_marginLeft="16dp"
-        android:layout_marginTop="20dp"
-        android:background="#ffeeeeee"
-        android:paddingLeft="2dp"
-        app:iv_IndicatorColorEnd="#ffee5544"
-        app:iv_IndicatorColorGradient="true"
-        app:iv_IndicatorColorStart="#ff3388ff"
-        app:iv_IndicatorLengthExtra="3dp"
-        app:iv_IndicatorTextArray="@array/text_arrays_2"
-        app:iv_IndicatorTextGap="20dp"
-        app:iv_IndicatorTextSize="20dp"/>
-
-    <android.support.v4.view.ViewPager
-        android:id="@+id/vp"
-        android:layout_width="match_parent"
-        android:layout_height="200dp"
-        android:layout_below="@id/indicator_view_2"
-        android:layout_marginLeft="16dp"
-        android:layout_marginTop="10dp"/>
+        android:layout_height="64dp"
+        android:layout_marginTop="10dp"
+        android:text="@string/to_simple"
+        android:textAllCaps="false"
+        android:textSize="20dp"/>
 
     <Button
-        android:id="@+id/button"
+        android:id="@+id/button_2"
         android:layout_width="match_parent"
-        android:layout_height="60dp"
-        android:layout_alignParentBottom="true"
-        android:layout_marginLeft="16dp"
-        android:layout_marginTop="20dp"
-        android:text="开始动画"
+        android:layout_height="64dp"
+        android:layout_below="@id/button_1"
+        android:layout_marginTop="10dp"
+        android:text="@string/to_normal_even"
+        android:textAllCaps="false"
+        android:textSize="20dp"/>
+
+    <Button
+        android:id="@+id/button_3"
+        android:layout_width="match_parent"
+        android:layout_height="64dp"
+        android:layout_below="@id/button_2"
+        android:layout_marginTop="10dp"
+        android:text="@string/to_normal_uneven"
+        android:textAllCaps="false"
+        android:textSize="20dp"/>
+
+    <Button
+        android:id="@+id/button_4"
+        android:layout_width="match_parent"
+        android:layout_height="64dp"
+        android:layout_below="@id/button_3"
+        android:layout_marginTop="10dp"
+        android:text="@string/to_all"
+        android:textAllCaps="false"
         android:textSize="20dp"/>
 
 </RelativeLayout>

@@ -8,13 +8,25 @@
         android:label="@string/app_name"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".MainActivity">
+        <activity android:name=".ActivityMain">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>
 
                 <category android:name="android.intent.category.LAUNCHER"/>
             </intent-filter>
         </activity>
+        <activity
+            android:name=".ActivitySimple"
+            android:label="@string/activity_simple"/>
+        <activity
+            android:name=".ActivityNormalEven"
+            android:label="@string/activity_even"/>
+        <activity
+            android:name=".ActivityNormalUneven"
+            android:label="@string/activity_uneven"/>
+        <activity
+            android:name=".ActivityAll"
+            android:label="@string/activity_all"/>
     </application>
 
 </manifest>
