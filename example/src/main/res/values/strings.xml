@@ -1,0 +1,19 @@
+<resources>
+
+    <string name="app_name">IndicatorView</string>
+
+    <string-array name="text_arrays_1">
+        <item>一</item>
+        <item>二三</item>
+        <item>四五六</item>
+    </string-array>
+
+    <string-array name="text_arrays_2">
+        <item>零</item>
+        <item>一二</item>
+        <item>三四五</item>
+        <item>六</item>
+        <item>七八九十</item>
+    </string-array>
+
+</resources>

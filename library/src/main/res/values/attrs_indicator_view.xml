@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <declare-styleable name="IndicatorView">
+        <attr name="iv_IndicatorEven" format="reference|boolean" />
+        <attr name="iv_IndicatorColor" format="reference|color" />
+        <attr name="iv_IndicatorColorStart" format="reference|color" />
+        <attr name="iv_IndicatorColorEnd" format="reference|color" />
+        <attr name="iv_IndicatorColorGradient" format="reference|boolean" />
+        <attr name="iv_IndicatorTextGap" format="reference|dimension" />
+        <attr name="iv_IndicatorTextArray" format="reference" />
+        <attr name="iv_IndicatorTextSize" format="reference|dimension" />
+        <attr name="iv_IndicatorTextColorNormal" format="reference|color" />
+        <attr name="iv_IndicatorTextColorSelected" format="reference|color" />
+        <attr name="iv_IndicatorLengthExtra" format="reference|dimension" />
+        <attr name="iv_IndicatorDuration" format="reference|integer" />
+        <attr name="iv_IndicatorSelectedIndex" format="reference|integer" />
+        <attr name="iv_IndicatorHeight" format="reference|dimension" />
+        <attr name="iv_IndicatorBgTouchedColor" format="reference|color" />
+        <attr name="iv_IndicatorViewPagerAnim" format="reference|boolean" />
+    </declare-styleable>
+
+    <declare-styleable name="SimpleIndicatorView">
+        <attr name="iv_SimpleIndicatorColor" format="reference|color" />
+        <attr name="iv_SimpleIndicatorColorStart" format="reference|color" />
+        <attr name="iv_SimpleIndicatorColorEnd" format="reference|color" />
+        <attr name="iv_SimpleIndicatorColorGradient" format="reference|boolean" />
+        <attr name="iv_SimpleIndicatorCount" format="reference|integer" />
+        <attr name="iv_SimpleIndicatorWidthRation" format="reference|float" />
+        <attr name="iv_SimpleIndicatorDuration" format="reference|integer" />
+        <attr name="iv_SimpleIndicatorDefaultIndex" format="reference|integer" />
+        <attr name="iv_SimpleIndicatorLineColor" format="reference|color" />
+        <attr name="iv_SimpleIndicatorLineShow" format="reference|boolean" />
+        <attr name="iv_SimpleIndicatorLineThickness" format="reference|dimension" />
+        <attr name="iv_SimpleIndicatorOrientation" format="enum">
+            <enum name="horizontal" value="0" />
+            <enum name="vertical" value="1" />
+        </attr>
+        <attr name="iv_SimpleIndicatorLinePosition" format="enum">
+            <enum name="start" value="0" />
+            <enum name="end" value="1" />
+        </attr>
+    </declare-styleable>
+
+</resources>
