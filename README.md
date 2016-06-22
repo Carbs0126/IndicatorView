@@ -95,6 +95,15 @@ SimpleIndicatorView和IndicatorView采用了两种不同的属性，原因是两
   mIndicatorView.setIndexWithViewPager(int indexDest);
 ```
 
+IndicatorView状态改变后的回调函数：
+```
+  mIndicatorView.setOnIndicatorChangedListener(new IndicatorView.OnIndicatorChangedListener() {
+            @Override
+            public void onIndicatorChanged(int oldSelectedIndex, int newSelectedIndex) {
+                //如果已经和ViewPager关联了，那么不要在此处改变ViewPager的状态
+            }
+        });
+```
 
 ## 注意事项
 1. IndicatorLengthExtra属性请暂时使用大于等于0的dimension值，因为我暂时没有对负值做限制，如果负值过小，可能显示会有问题;
