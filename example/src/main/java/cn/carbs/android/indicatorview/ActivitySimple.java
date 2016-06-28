@@ -5,7 +5,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
 
-import cn.carbs.android.library.indicatorview.SimpleIndicatorView;
+import cn.carbs.android.indicatorview.library.SimpleIndicatorView;
 
 public class ActivitySimple extends AppCompatActivity {
 

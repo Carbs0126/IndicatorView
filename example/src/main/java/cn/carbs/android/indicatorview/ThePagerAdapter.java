@@ -18,7 +18,6 @@ public class ThePagerAdapter extends PagerAdapter {
     private ArrayList<TextView> pages = new ArrayList<TextView>();
     private int pageNumber;
     private Context context;
-//    private ViewPager.LayoutParams params = new ViewPager.LayoutParams();
 
     public ThePagerAdapter(Context context, int pageNumber) {
         this.context = context;
@@ -44,7 +43,6 @@ public class ThePagerAdapter extends PagerAdapter {
         if(page == null){
             page = new TextView(context);
             page.setBackgroundColor(0x99990000);
-//            page.setLayoutParams(params);
             page.setGravity(Gravity.CENTER);
             page.setTextColor(0xffffffff);
             pages.set(position, page);

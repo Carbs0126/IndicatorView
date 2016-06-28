@@ -6,7 +6,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
 
-import cn.carbs.android.library.indicatorview.IndicatorView;
+import cn.carbs.android.indicatorview.library.IndicatorView;
 
 public class ActivityNormalEven extends AppCompatActivity {
 

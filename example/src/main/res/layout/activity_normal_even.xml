@@ -7,7 +7,7 @@
                 android:paddingRight="@dimen/activity_vertical_margin"
                 android:paddingTop="@dimen/activity_vertical_margin">
 
-    <cn.carbs.android.library.indicatorview.IndicatorView
+    <cn.carbs.android.indicatorview.library.IndicatorView
         android:id="@+id/indicator_view"
         android:layout_width="match_parent"
         android:layout_height="60dp"
