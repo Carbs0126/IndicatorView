@@ -43,7 +43,7 @@ SimpleIndicatorView和IndicatorView采用了两种不同的属性，原因是两
 
 1.对于IndicatorView，xml中这样声明：
 ```
-  <cn.carbs.android.library.indicatorview.IndicatorView
+  <cn.carbs.android.indicatorview.library.IndicatorView
         android:id="@+id/indicator_view"
         android:layout_width="match_parent"
         android:layout_height="60dp"
@@ -62,7 +62,7 @@ SimpleIndicatorView和IndicatorView采用了两种不同的属性，原因是两
 ```
 2.对于SimpleIndicatorView，xml中这样声明：
 ```
-<cn.carbs.android.library.indicatorview.SimpleIndicatorView
+<cn.carbs.android.indicatorview.library.SimpleIndicatorView
         android:id="@+id/simple_indicator_view_v"
         android:layout_width="4dp"
         android:layout_height="match_parent"
