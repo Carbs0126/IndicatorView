@@ -517,7 +517,10 @@ public class IndicatorView extends View {
                 return ret;
             }
         }
-        Log.d(TAG, "getCurrIndexAndOffset() wrong");
+        Log.d(TAG, "getCurrIndexAndOffset() wrong mCurrP.x : " + mCurrP.x
+                + " mIndicatorTextArray[0].x " + mIndicatorTextArrayCenterPoints[0].x
+                + " mIndicatorTextArray[" + (mIndicatorTextArrayCenterPoints.length-1) + "].x "
+                + mIndicatorTextArrayCenterPoints[mIndicatorTextArrayCenterPoints.length - 1].x);//TODO
         return null;
     }
 
