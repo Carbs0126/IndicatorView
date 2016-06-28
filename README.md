@@ -34,7 +34,7 @@ Android IndicatorView的灵感来源于SlidingTabView，虽然有句“不重复
 
 ## 加入项目
 ```
-  compile 'cn.carbs.android:IndicatorView:1.0.0'
+  compile 'cn.carbs.android:IndicatorView:1.0.1'
 ```
 
 ## 使用方法
