@@ -4,8 +4,8 @@ import android.content.Context;
 import android.content.res.TypedArray;
 import android.graphics.Canvas;
 import android.graphics.Paint;
-import android.graphics.PointF;
-import android.graphics.RectF;
+import android.graphics.Point;
+import android.graphics.Rect;
 import android.support.v4.view.ViewPager;
 import android.text.TextUtils;
 import android.util.AttributeSet;
@@ -57,18 +57,18 @@ public class IndicatorView extends View {
 
     private CharSequence[] mIndicatorTextArray;
     private int[] mIndicatorTextArrayWidths;
-    private PointF[] mIndicatorTextArrayCenterPoints;
+    private Point[] mIndicatorTextArrayCenterPoints;
 
     private Paint mPaintIndicator = new Paint();
     private Paint mPaintText = new Paint();
     private Paint mPaintTouch = new Paint();
 
-    private RectF mRectFIndicator = new RectF();
-    private RectF mRectFTouchEffect = new RectF();
+    private Rect mRectFIndicator = new Rect();
+    private Rect mRectFTouchEffect = new Rect();
 
-    private PointF mDestP = new PointF();
-    private PointF mOrigP = new PointF();
-    private PointF mCurrP = new PointF();
+    private Point mDestP = new Point();
+    private Point mOrigP = new Point();
+    private Point mCurrP = new Point();
 
     private ValueGeneratorAnim mAnim = new ValueGeneratorAnim();
 
@@ -238,7 +238,7 @@ public class IndicatorView extends View {
 
     private void refreshCurrColorByCurrPoint(){
         if(mIndicatorColorGradient && mIndicatorTextArrayCenterPoints != null && mIndicatorTextArrayCenterPoints.length > 1){
-            float fraction = (mCurrP.x - mIndicatorTextArrayCenterPoints[0].x) /
+            float fraction = ((float)(mCurrP.x - mIndicatorTextArrayCenterPoints[0].x)) /
                     (mIndicatorTextArrayCenterPoints[mIndicatorTextArrayCenterPoints.length - 1].x - mIndicatorTextArrayCenterPoints[0].x);
             mIndicatorColor = getEvaluateColor(fraction, mIndicatorColorStart, mIndicatorColorEnd);
         }
@@ -255,30 +255,30 @@ public class IndicatorView extends View {
             mIndicatorTextArrayCenterPoints = null;
         }else{
             mIndicatorTextArrayWidths = new int[mIndicatorTextArray.length];
-            mIndicatorTextArrayCenterPoints = new PointF[mIndicatorTextArray.length];
-            float centerY = (mHeight - mIndicatorHeight) / 2;
+            mIndicatorTextArrayCenterPoints = new Point[mIndicatorTextArray.length];
+            int centerY = (mHeight - mIndicatorHeight) / 2;
 
             if(mEven){
                 for (int i = 0; i < mIndicatorTextArray.length; i++) {
 //                    mIndicatorTextArrayWidths[i] = mNetWidth / mIndicatorTextArray.length + 2 * mIndicatorExtra;
 //                    mIndicatorTextArrayCenterPoints[i] = new PointF(getPaddingLeft() + mNetWidth * (i + 0.5f) / mIndicatorTextArray.length, centerY);
                     mIndicatorTextArrayWidths[i] = (mNetWidth - 2 * mIndicatorExtra) / mIndicatorTextArray.length;
-                    mIndicatorTextArrayCenterPoints[i] = new PointF(getPaddingLeft()
-                            + mIndicatorExtra + (mNetWidth - 2 * mIndicatorExtra) * (i + 0.5f) / mIndicatorTextArray.length, centerY);
+                    mIndicatorTextArrayCenterPoints[i] = new Point((int)(getPaddingLeft()
+                            + mIndicatorExtra + (mNetWidth - 2 * mIndicatorExtra) * (i + 0.5f) / mIndicatorTextArray.length), centerY);
                 }
             }else {
                 for (int i = 0; i < mIndicatorTextArray.length; i++) {
                     mIndicatorTextArrayWidths[i] = getTextWidth(mIndicatorTextArray[i].toString(), mPaintText);
                     if (i == 0) {
                         mIndicatorTextArrayCenterPoints[i] =
-                                new PointF(getPaddingLeft() + ((float) mIndicatorTextArrayWidths[i]) / 2 + (mIndicatorExtra > 0 ? mIndicatorExtra : 0),
+                                new Point((int)(getPaddingLeft() + ((float) mIndicatorTextArrayWidths[i]) / 2 + (mIndicatorExtra > 0 ? mIndicatorExtra : 0)),
                                         centerY);
                     } else {
                         mIndicatorTextArrayCenterPoints[i] =
-                                new PointF(mIndicatorTextArrayCenterPoints[i - 1].x
-                                        + ((float) mIndicatorTextArrayWidths[i - 1]) / 2
+                                new Point(mIndicatorTextArrayCenterPoints[i - 1].x
+                                        + mIndicatorTextArrayWidths[i - 1] / 2
                                         + mIndicatorGap
-                                        + ((float) mIndicatorTextArrayWidths[i]) / 2,
+                                        + mIndicatorTextArrayWidths[i] / 2,
                                         centerY);
                     }
                 }
@@ -297,8 +297,8 @@ public class IndicatorView extends View {
                     + " now offsetRation is " + index);
         }
         if(index != mIndicatorTextArray.length - 1){
-            mCurrP.x = mIndicatorTextArrayCenterPoints[index].x
-                    + offsetRation * (mIndicatorTextArrayCenterPoints[index + 1].x - mIndicatorTextArrayCenterPoints[index].x);
+            mCurrP.x = (int)(mIndicatorTextArrayCenterPoints[index].x
+                    + offsetRation * (mIndicatorTextArrayCenterPoints[index + 1].x - mIndicatorTextArrayCenterPoints[index].x));
             mCurrP.y = mIndicatorTextArrayCenterPoints[index].y;
         }else{
             mCurrP.x = mIndicatorTextArrayCenterPoints[index].x;
@@ -363,10 +363,10 @@ public class IndicatorView extends View {
             if(mIndicatorTextArrayCenterPoints[i].x <= mCurrP.x
                     && mCurrP.x <= mIndicatorTextArrayCenterPoints[i+1].x){
 
-                float offsetRation = (mCurrP.x - mIndicatorTextArrayCenterPoints[i].x)/
+                float offsetRation = ((float) (mCurrP.x - mIndicatorTextArrayCenterPoints[i].x))/
                         (mIndicatorTextArrayCenterPoints[i+1].x - mIndicatorTextArrayCenterPoints[i].x);
-                float springHalfWidth = mIndicatorExtra + mIndicatorTextArrayWidths[i] / 2
-                        + (mIndicatorTextArrayWidths[i+1] - mIndicatorTextArrayWidths[i]) * offsetRation / 2;
+                int springHalfWidth = (int)(mIndicatorExtra + (float)mIndicatorTextArrayWidths[i] / 2
+                        + (mIndicatorTextArrayWidths[i+1] - mIndicatorTextArrayWidths[i]) * offsetRation / 2);
 
                 mRectFIndicator.left = mCurrP.x - springHalfWidth;
                 mRectFIndicator.right = mCurrP.x + springHalfWidth;
@@ -442,13 +442,12 @@ public class IndicatorView extends View {
                     " and larger than -1, now indexDest is " + indexDest );
         }
 
-        float destCenterX, destCenterY;
-
+        int destCenterX, destCenterY;
         destCenterX = mIndicatorTextArrayCenterPoints[indexDest].x;
         destCenterY = mIndicatorTextArrayCenterPoints[indexDest].y;
 
         mAnim.cancel();
-        mOrigP.set(mCurrP);
+        mOrigP.set(mCurrP.x, mCurrP.y);
         mDestP.set(destCenterX, destCenterY);
         if(mOrigP.x == mDestP.x && mOrigP.y == mDestP.y){
             return;
@@ -517,14 +516,20 @@ public class IndicatorView extends View {
                 return ret;
             }
         }
-        Log.d(TAG, "getCurrIndexAndOffset() wrong mCurrP.x : " + mCurrP.x
-                + " mIndicatorTextArray[0].x " + mIndicatorTextArrayCenterPoints[0].x
-                + " mIndicatorTextArray[" + (mIndicatorTextArrayCenterPoints.length-1) + "].x "
-                + mIndicatorTextArrayCenterPoints[mIndicatorTextArrayCenterPoints.length - 1].x);//TODO
+        if(mCurrP.x < mIndicatorTextArrayCenterPoints[0].x){
+            ret[0] = 0;
+            ret[1] = 0f;
+            return ret;
+        }
+        if(mCurrP.x > mIndicatorTextArrayCenterPoints[mIndicatorTextArray.length - 1].x){
+            ret[0] = mIndicatorTextArray.length - 1;
+            ret[1] = 0f;
+            return ret;
+        }
         return null;
     }
 
-    private void startAnim(final PointF origP, final PointF destP, final PointF currP){
+    private void startAnim(final Point origP, final Point destP, final Point currP){
         mAnim.reset();
         mAnim.setInterpolator(new AccelerateDecelerateInterpolator());
         mAnim.setDuration(mIndicatorDuration);
@@ -538,9 +543,9 @@ public class IndicatorView extends View {
         this.startAnimation(mAnim);
     }
 
-    private void getCurrPoint(float fraction, PointF origP, PointF destP, PointF currP){
-        currP.x = origP.x + (destP.x - origP.x) * fraction;
-        currP.y = origP.y + (destP.y - origP.y) * fraction;
+    private void getCurrPoint(float fraction, Point origP, Point destP, Point currP){
+        currP.x = (int)(origP.x + (destP.x - origP.x) * fraction);
+        currP.y = (int)(origP.y + (destP.y - origP.y) * fraction);
     }
 
     class ValueGeneratorAnim extends Animation {
