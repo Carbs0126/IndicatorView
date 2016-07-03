@@ -1,4 +1,5 @@
 # IndicatorView
+[![Android Arsenal](https://img.shields.io/badge/Android%20Arsenal-IndicatorView-brightgreen.svg?style=flat)](http://android-arsenal.com/details/1/3821)<br>
 IndicatorView on Android platform to indicator the current index of pages
 
 ## 概述
