@@ -1,6 +1,9 @@
 # IndicatorView
 [![Android Arsenal](https://img.shields.io/badge/Android%20Arsenal-IndicatorView-brightgreen.svg?style=flat)](http://android-arsenal.com/details/1/3821)<br>
-IndicatorView on Android platform to indicator the current index of pages
+
+* [English](#english)
+
+Android平台的IndicatorView用来指示当前page所在index的状态
 
 ## 概述
 Android IndicatorView的灵感来源于SlidingTabView，虽然有句“不重复”造轮子在先，本着练手的目的，还是写了一个功能较为简单的类似view。
@@ -160,6 +163,170 @@ IndicatorView状态改变后的回调函数：
         </attr>
     </declare-styleable>
 ```
+
+
+#English
+
+IndicatorView on Android platform to indicator the current index of pages
+
+## Abstract
+Android `IndicatorView` inspired by `SlidingTabView`, this project was to practice customizing view, but as i kept working on it, now it has some interesting attributes. <br>
+This view's defects compared to SlidingTabView is it cannot scroll the Strings to adjust the content to the center when pressed content is not shown completely, and in parttime i will refine this funtion.<br>
+BTW, it donot have ripple effect neither.<br>
+
+## Application Scenarios
+tabs not fill the width of screen.
+
+## Screenshot
+
+![Example Image][1]
+
+
+![Example Image][2]
+
+left picture includes IndicatorView and SimpleIndicatorView, right one just presents SimpleIndicatorView sample.
+
+## Functions and Attributes
+0. can change position gradually correspondding to ViewPager;
+1. show even Indicators；
+2. show uneven Indicators, can adjust width of indicator automatically correspondding to the current text
+3. can set the extra length of indicator compared to each text;
+4. can set Gradient color of indicator when indicator changing its position, making UI more friendly; 
+5. can set Gradient color of text when indicator changing its position, making UI more friendly; 
+6. can set SimpleIndicatorView's width ratio, correspondding to each Unit's width;
+7. can set SimpleIndicatorView's orientation, horizontal or vertical. can add a line at start or end of this SimpleIndicatorView.
+8. can change position from first item to last one, vice versa.
+9. support padding, support pressed effect.
+10. can set texts at once.
+11. can control IndicatorView by using only one line of java code, if you want it to move correspondding to ViewPager.
+
+## Add to project
+```
+  compile 'cn.carbs.android:IndicatorView:1.0.1'
+```
+
+## How to use
+### add view in xml
+Since SimpleIndicatorView and IndicatorView are in different style and have many different attributes, I made two attr xml files. and SimpleIndicatorView is of Low Coupling compared with IndicatorView. 
+
+1.as to IndicatorView, in xml:
+```
+  <cn.carbs.android.indicatorview.library.IndicatorView
+        android:id="@+id/indicator_view"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:layout_marginTop="20dp"
+        android:background="#ffeeeeee"
+        android:paddingLeft="2dp"
+        android:paddingRight="2dp"
+        app:iv_IndicatorColorEnd="#ffee5544"
+        app:iv_IndicatorColorGradient="true"
+        app:iv_IndicatorColorStart="#ff3388ff"
+        app:iv_IndicatorEven="false"
+        app:iv_IndicatorLengthExtra="3dp"
+        app:iv_IndicatorTextArray="@array/text_arrays_2"
+        app:iv_IndicatorTextGap="20dp"
+        app:iv_IndicatorTextSize="20dp"/>
+```
+2.as to SimpleIndicatorView, in xml
+```
+<cn.carbs.android.indicatorview.library.SimpleIndicatorView
+        android:id="@+id/simple_indicator_view_v"
+        android:layout_width="4dp"
+        android:layout_height="match_parent"
+        android:layout_alignParentLeft="true"
+        app:iv_SimpleIndicatorColorEnd="#ffee5544"
+        app:iv_SimpleIndicatorColorGradient="true"
+        app:iv_SimpleIndicatorColorStart="#ff3388ff"
+        app:iv_SimpleIndicatorCount="4"
+        app:iv_SimpleIndicatorLinePosition="start"
+        app:iv_SimpleIndicatorOrientation="vertical"
+        app:iv_SimpleIndicatorWidthRation="0.8"/>
+```
+attrs' introduction is at the end of this file
+
+### control view by java code:
+
+if you want IndicatorView move correspondding to ViewPager, add code :
+```
+  mIndicatorView.setViewPager(mViewpager);
+```
+if you want to change its index, you can use one of these three mothods:
+```
+  //increase IndicatorView's index by 1
+  mIndicatorView.increaseSelectedIndexWithViewPager();
+  
+  //decrease IndicatorView's index by 1
+  mIndicatorView.decreaseSelectedIndexWithViewPager();
+  
+  //make IndicatorView refer to random index
+  mIndicatorView.setIndexWithViewPager(int indexDest);
+```
+
+set callback when IndicatorView's state changed:
+```
+  mIndicatorView.setOnIndicatorChangedListener(new IndicatorView.OnIndicatorChangedListener() {
+            @Override
+            public void onIndicatorChanged(int oldSelectedIndex, int newSelectedIndex) {
+				//if has set interaction with viewpager, donot set ViewPager's state here
+            }
+        });
+```
+
+## Attention
+1. the attribute IndicatorLengthExtra should be larger than 0dp, i didnot set limitation of this value.
+2. not support generate this view by java code, only support add view in xml; 
+3. IndicatorView can only move in horizontal, SimpleIndicatorView can move in both horizontal and vertical;
+4. IndicatorView can move correspondding to ViewPager, but SimpleIndicatorView cannot.
+
+## Attributes
+### IndicatorView's attributes
+```
+<declare-styleable name="IndicatorView">
+        <attr name="iv_IndicatorEven" format="reference|boolean" /> //set if each item's width is equal
+        <attr name="iv_IndicatorColor" format="reference|color" />  //indicator's color
+        <attr name="iv_IndicatorColorStart" format="reference|color" /> //indicator's color when it start to move, color will change as indicator moving, valid if iv_IndicatorColorGradient is true
+        <attr name="iv_IndicatorColorEnd" format="reference|color" /> //indicator's color when it end, color will change as indicator moving, valid if iv_IndicatorColorGradient is true
+        <attr name="iv_IndicatorColorGradient" format="reference|boolean" />//if use gradient color effect
+        <attr name="iv_IndicatorTextGap" format="reference|dimension" />// each text's gap to the next one, valid if  iv_IndicatorEven is false(only in uneven mode)
+        <attr name="iv_IndicatorTextArray" format="reference" />//show tab's title
+        <attr name="iv_IndicatorTextSize" format="reference|dimension" />//tab's text size
+        <attr name="iv_IndicatorTextColorNormal" format="reference|color" />//tab's text color when not selected. valid when iv_IndicatorColorGradient="false"
+        <attr name="iv_IndicatorTextColorSelected" format="reference|color" />//tab's text color when not select. valid when iv_IndicatorColorGradient="false"
+        <attr name="iv_IndicatorLengthExtra" format="reference|dimension" />//equal to half of (indicator's length minus each tab's width)
+        <attr name="iv_IndicatorDuration" format="reference|integer" />//duration of switching indicator from one index to another
+        <attr name="iv_IndicatorSelectedIndex" format="reference|integer" />//default selected index
+        <attr name="iv_IndicatorHeight" format="reference|dimension" />//indicator's height
+        <attr name="iv_IndicatorBgTouchedColor" format="reference|color" />//background color when pressed one tab
+        <attr name="iv_IndicatorViewPagerAnim" format="reference|boolean" />//when selected a tab, set true to make the correspondding ViewPager scroll with animation,false without animation. this value is the argument in setCurrentItem(int, boolean) of ViewPager    </declare-styleable>
+    
+```
+
+### SimpleIndicatorView's attrs
+```
+    <declare-styleable name="SimpleIndicatorView">
+        <attr name="iv_SimpleIndicatorColor" format="reference|color" />//indicator's color
+        <attr name="iv_SimpleIndicatorColorStart" format="reference|color" />//indicator's color when it start to move, color will change as indicator moving, valid if iv_SimpleIndicatorColorGradient is true
+        <attr name="iv_SimpleIndicatorColorEnd" format="reference|color" />//indicator's color when it end, color will change as indicator moving, valid if iv_SimpleIndicatorColorGradient is true
+        <attr name="iv_SimpleIndicatorColorGradient" format="reference|boolean" />//if use gradient color effect
+        <attr name="iv_SimpleIndicatorCount" format="reference|integer" />//count number of units
+        <attr name="iv_SimpleIndicatorWidthRation" format="reference|float" />//ratio of indicator width divided by each even unit's width
+        <attr name="iv_SimpleIndicatorDuration" format="reference|integer" />//duration of switching indicator from one index to another
+        <attr name="iv_SimpleIndicatorDefaultIndex" format="reference|integer" />//default selected index
+        <attr name="iv_SimpleIndicatorLineColor" format="reference|color" />//hint line's color
+        <attr name="iv_SimpleIndicatorLineShow" format="reference|boolean" />//if show hint line
+        <attr name="iv_SimpleIndicatorLineThickness" format="reference|dimension" />//height of hint line
+        <attr name="iv_SimpleIndicatorOrientation" format="enum">//indicator in horizontal or vertical
+            <enum name="horizontal" value="0" />
+            <enum name="vertical" value="1" />
+        </attr>
+        <attr name="iv_SimpleIndicatorLinePosition" format="enum">//hint line's position, when indicator is in horizontal, hint line can be at bottom or top of indicator; when indicator is in vertical, hint line can be at left or right of the indicator.
+            <enum name="start" value="0" />
+            <enum name="end" value="1" />
+        </attr>
+    </declare-styleable>
+```
+
 
 ## License
 
